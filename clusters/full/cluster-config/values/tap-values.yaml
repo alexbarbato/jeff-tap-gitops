@@ -1,0 +1,59 @@
+tap_install:
+  values:
+    excluded_packages:
+    - policy.apps.tanzu.vmware.com
+
+    profile: full
+
+    contour:
+      envoy:
+        service:
+          type: LoadBalancer
+
+    shared:
+      ingress_domain: k8s.demo
+
+    ceip_policy_disclosed: true
+    buildservice:
+      kp_default_repository: "KP-DEFAULT-REPO"
+      kp_default_repository_username: "KP-DEFAULT-REPO-USERNAME"
+      kp_default_repository_password: "KP-DEFAULT-REPO-PASSWORD"
+      tanzunet_username: "TANZUNET-USERNAME"
+      tanzunet_password: "TANZUNET-PASSWORD"
+      descriptor_name: "DESCRIPTOR-NAME"
+
+    supply_chain: basic
+
+    cnrs:
+      domain_name: k8s.demo
+
+    ootb_supply_chain_basic:
+      registry:
+        server: "harbor.projectonestone.io"
+        repository: "tap-apps"
+
+    learningcenter:
+      ingressDomain: "k8s.demo"
+
+    tap_gui:
+      service_type: ClusterIP
+      ingressEnabled: "true"
+      ingressDomain: "k8s.demo"
+      app_config:
+        app:
+          baseUrl: http://tap-gui.k8s.demo
+        catalog:
+          locations:
+            - type: url
+              target: https://GIT-CATALOG-URL/catalog-info.yaml
+        backend:
+          baseUrl: http://tap-gui.k8s.demo
+          cors:
+            origin: http://tap-gui.k8s.demo
+
+    metadata_store:
+      app_service_type: LoadBalancer # (optional) Defaults to LoadBalancer. Change to NodePort for distributions that don't support LoadBalancer
+
+    grype:
+      namespace: "MY-DEV-NAMESPACE" # (optional) Defaults to default namespace.
+      targetImagePullSecret: "TARGET-REGISTRY-CREDENTIALS-SECRET"
