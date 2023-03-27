@@ -12,6 +12,8 @@ tap_install:
 
     shared:
       ingress_domain: k8s.demo
+      ca_cert_data: |
+        hold-my-beer
 
     ceip_policy_disclosed: true
     buildservice:
