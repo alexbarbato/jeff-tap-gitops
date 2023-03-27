@@ -10,6 +10,9 @@ tap_install:
         service:
           type: LoadBalancer
 
+    shared:
+      ca_cert_data: "fish"
+
     ceip_policy_disclosed: true
     buildservice:
       kp_default_repository: "KP-DEFAULT-REPO"
