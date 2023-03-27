@@ -11,9 +11,8 @@ tap_install:
           type: LoadBalancer
 
     shared:
+      ca_cert_data: "fish"
       ingress_domain: k8s.demo
-      ca_cert_data: |
-        hold-my-beer
 
     ceip_policy_disclosed: true
     buildservice:
@@ -33,6 +32,8 @@ tap_install:
       registry:
         server: "harbor.projectonestone.io"
         repository: "tap-apps"
+      gitops:
+        ssh_secret: "SSH-SECRET-KEY"
 
     learningcenter:
       ingressDomain: "k8s.demo"
