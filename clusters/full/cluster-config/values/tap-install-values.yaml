@@ -1,3 +1,6 @@
 tap_install:
   package_repository:
     oci_repository: harbor.projectonestone.io/tap/tap-packages
+  version:
+    package_repo_bundle_tag: "1.1.2"
+    package_version: "1.1.2"
